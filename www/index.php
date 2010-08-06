@@ -1,4 +1,5 @@
 <?
+require("include/dbcon.inc");
 
-phpinfo();
+echo "it worx\n";
 ?>
