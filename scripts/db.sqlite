@@ -17,7 +17,7 @@ CREATE TABLE StationMovables (
 );
 
 
-#per guide at http://www.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
+--per guide at http://www.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
 
 CREATE TABLE "android_metadata" ("locale" TEXT DEFAULT 'en_US');
 INSERT INTO "android_metadata" VALUES ('en_US');
