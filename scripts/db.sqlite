@@ -1,0 +1,30 @@
+CREATE TABLE Stations (
+  _id   PRIMARY KEY, 
+  name  varchar(255) NOT NULL 
+);
+  
+CREATE TABLE StationMovables (
+  statid int NOT NULL,
+  movableid varchar(10) NOT NULL,
+  coming time,
+  going time,
+  fromstation int,
+  tostation int,
+  extratxt      text,
+  sun int,
+  sat int,
+  extratxthandled int
+);
+
+
+#per guide at http://www.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
+
+CREATE TABLE "android_metadata" ("locale" TEXT DEFAULT 'en_US');
+INSERT INTO "android_metadata" VALUES ('en_US');
+
+
+
+
+
+
+
