@@ -57,7 +57,7 @@ echo $now."<br>";
   echo "<td>".$coming."</td>";
   $fs = get_station_name($fromstation);
   $ts =  get_station_name($tostation);
-  echo "<td>$fs</td><td>$ts</td><td>".$row['extratxt']."</td>";
+  echo "<td>$fs</td><td>$ts</td><td>".$extratxt."</td>";
   echo "</tr>";
     
     }
