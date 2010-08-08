@@ -1,0 +1,12 @@
+UVJETI ZA vremensku svjesnost:
+- Vozi nedjeljom znaci vozi samo nedjeljom (i subota itd)
+- Ostali slucajevi napomena
+
+- update voznog reda (provjeravati sto se mijenja)
+
+ANDROID
+- provjeriti brzinu na slabijim telefonima
+- napraviti update metodu (DELETE tablica, BEGIN TRANSACTION etc)
+- ikonica
+- vremenska svjesnost
+- razno

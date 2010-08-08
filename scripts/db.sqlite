@@ -16,11 +16,21 @@ CREATE TABLE StationMovables (
   extratxthandled int
 );
 
+CREATE TABLE ToFromSelections(
+  _id    INTEGER PRIMARY KEY,
+  userid int,
+  fromstation int,
+  tostation int,
+  name text,
+  count int
+);
+
+
 
 --per guide at http://www.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
 
 CREATE TABLE "android_metadata" ("locale" TEXT DEFAULT 'en_US');
-INSERT INTO "android_metadata" VALUES ('en_US');
+INSERT INTO "android_metadata" VALUES ('hr_HR.URF-8');
 
 
 

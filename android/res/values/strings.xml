@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, vlakic!</string>
+    <string name="app_name">Vlakic</string>
+<string name="no_db">Prazna baza vlakova</string>
+<string name="menu_last">Zadnji odabiri</string>
+<string name="search">Traži</string>
+<string name="going">Odlazak</string><string name="menu_addfav">Dodaj u moje stanice</string>
+
+<string name="notes">Napomena</string><string name="to">Za</string>
+
+<string name="view_station">Raspored za stanicu</string>
+<string name="adddest">Dodaj odredište</string>
+<string name="selections">Moji odabiri</string>
+<string name="delete">Obriši</string>
+<string name="newsel">Novi odabir</string>
+</resources>

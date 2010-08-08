@@ -16,6 +16,14 @@ CREATE TABLE StationMovables (
   extratxthandled int
 );
 
+CREATE TABLE ToFromSelections( 
+  _id    SERIAL,
+  userid int,
+  fromstation int,
+  tostation int,
+  name text,
+  count int
+);
 
 
 
