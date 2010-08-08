@@ -215,6 +215,8 @@ public class TimetableDbAdapter {
 
 		}
 		mDb = mDbHelper.getWritableDatabase();
+		mDb.execSQL("create index if not exists stats_idx on StationMovables (statid);");
+		mDb.execSQL("create index if not exists movables_idx on StationMovables (movableid);");
 		return this;
 	}
 
@@ -283,7 +285,7 @@ public class TimetableDbAdapter {
     }
     public ArrayList getStationToFromTimetable(String toStation, String fromStation) {
     	String econd = ""; // condition for time stuff
-    	String sql = "SELECT distinct movableid,going,coming FROM StationMovables WHERE statid='"+ fromStation+ "' " + econd + " order by going";
+    	String sql = "SELECT distinct movableid,going,coming,fromstation,tostation,extratxt FROM StationMovables WHERE statid='"+ fromStation+ "' " + econd + " order by going";
     	//System.out.println(sql);
     	Cursor c = mDb.rawQuery(sql, null);
     	ArrayList retArr = new ArrayList();
@@ -293,7 +295,10 @@ public class TimetableDbAdapter {
           {
           	String movable = c.getString(0);
           	String going = c.getString(1);
-          	String coming = c.getString(1);
+          	String coming = c.getString(2);
+          	String fromstation = c.getString(3);
+          	String tostation = c.getString(4);
+          	String extratxt = c.getString(5);
           	if(going.length() == 0)  {
           		c.moveToNext();
           		continue;          		
@@ -310,25 +315,20 @@ public class TimetableDbAdapter {
           		if (false) {
           			
           		} else {
-          			sql = "SELECT  going, fromstation, tostation, extratxt  " +
-          					"FROM StationMovables as sm WHERE statid='" + fromStation + "' and movableid='" +
-          					movable + "'  order by going";
+          	
           			//System.out.println(sql);
-          			Cursor c3 = mDb.rawQuery(sql,null);
-          			c3.moveToFirst();
-          			int j =0;
-                    while (c3.isAfterLast() == false) {
+
                     	// we don't actually need 
                     	String tostr = "";
                     	String fromstr = "";
-                    	if (c3.getString(1).length() > 0) {
-                    		fromstr = getStationName(c3.getString(1));
+                    	if (fromstation.length() > 0) {
+                    		fromstr = getStationName(fromstation);
                     	}
-                    	if (c3.getString(2).length() > 0) {
-                    		tostr = getStationName(c3.getString(2));
+                    	if (tostation.length() > 0) {
+                    		tostr = getStationName(tostation);
                     	}
                     	if (!tostr.equals("")) {
-                    	String extratxt = c3.getString(3);
+                    	
                     	ArrayList in = new ArrayList();
                     	in.add(going);
                     	in.add(tostr);
@@ -336,9 +336,7 @@ public class TimetableDbAdapter {
                     	
                     	retArr.add(in);
                     	}
-                    	c3.moveToNext();
-                    }
-                    c3.close();
+                   
           			
           		}
           	}
