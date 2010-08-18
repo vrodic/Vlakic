@@ -96,9 +96,7 @@ public class TimetableDbAdapter {
 			}
 
 			if (checkDB != null) {
-
 				checkDB.close();
-
 			}
 
 			return checkDB != null ? true : false;
@@ -131,26 +129,20 @@ public class TimetableDbAdapter {
 			myOutput.flush();
 			myOutput.close();
 			myInput.close();
-
 		}
 
 		public void openDataBase() throws SQLException {
-
 			// Open the database
 			String myPath = DB_PATH + DB_NAME;
 			myDataBase = SQLiteDatabase.openDatabase(myPath, null,
 					SQLiteDatabase.OPEN_READONLY);
-
 		}
 
 		@Override
 		public synchronized void close() {
-
 			if (myDataBase != null)
 				myDataBase.close();
-
 			super.close();
-
 		}
 
 		@Override
