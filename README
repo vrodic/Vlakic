@@ -2,8 +2,8 @@ Directory android contains the android project that can be imported to
 Eclipse.
 
 scripts and web directories contain .sql creation scripts, screen scraper
-for HZ, and a minimal web interface. It depends on php5 and postgresql, with
-scripts to convert to sqlite db for Android.
+for HZ, and a minimal web interface. It depends on php5 (haters will hate) 
+and postgresql, with scripts to convert to sqlite db for Android.
 
 Preparing data for android:
 
