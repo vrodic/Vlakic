@@ -215,8 +215,8 @@ public class TimetableDbAdapter {
 
 		}
 		mDb = mDbHelper.getWritableDatabase();
-		mDb.execSQL("create index if not exists stats_idx on StationMovables (statid);");
-		mDb.execSQL("create index if not exists movables_idx on StationMovables (movableid);");
+		//mDb.execSQL("create index if not exists stats_idx on StationMovables (statid);");
+		//mDb.execSQL("create index if not exists movables_idx on StationMovables (movableid);");
 		return this;
 	}
 
