@@ -7,7 +7,6 @@ and postgresql, with scripts to convert to sqlite db for Android.
 
 Preparing data for android:
 
-
 cd scripts
 sh sqlitebuild.sh
 cd ..
