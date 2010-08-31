@@ -229,7 +229,7 @@ public class TimetableDbAdapter {
     
     public Cursor fetchAllSelections() {
 
-        return mDb.rawQuery("select _id, name, fromstation,tostation, count FROM ToFromSelections order by count desc;",null);
+        return mDb.rawQuery("select _id, name, fromstation,tostation, count FROM ToFromSelections order by count desc",null);
     }
     
     
@@ -241,14 +241,14 @@ public class TimetableDbAdapter {
     public Cursor getStationTimetable(String stationid) {
 
     	String sql = "select sm.going,s.name,sm.extratxt from stationmovables as sm, " +
-    			"stations as s where sm.statid='"+stationid+"' and s._id=sm.tostation;";
+    			"stations as s where sm.statid='"+stationid+"' and s._id=sm.tostation";
 //    	System.out.println(sql);
     	return mDb.rawQuery(sql,null);
  
     }
     
     public boolean hasSelections() {
-    	String sql = "select count(*) FROM ToFromSelections;";
+    	String sql = "select count(*) FROM ToFromSelections";
     	Cursor c = mDb.rawQuery(sql, null);
     	c.moveToFirst();
     	if (Integer.parseInt(c.getString(0)) > 0) return true;
@@ -258,20 +258,20 @@ public class TimetableDbAdapter {
     public void updateOrInsertLastToFrom(String toStation, String fromStation) {
     	
     	String sql = "select count(*) FROM ToFromSelections WHERE fromstation='" + 
-    				fromStation + "' and tostation='" + toStation + "';";
+    				fromStation + "' and tostation='" + toStation +"'";
     //	System.out.println(sql);
     	Cursor c = mDb.rawQuery(sql, null);
     	c.moveToFirst();
     	if (Integer.parseInt(c.getString(0)) > 0) {
     		//System.out.println("Update Selections");
     		mDb.execSQL("UPDATE ToFromSelections SET count=count+1 WHERE fromstation='" + 
-    				fromStation + "' and tostation='" + toStation + "';");
+    				fromStation + "' and tostation='" + toStation + "'");
     	} else {
     		String name = getStationName(fromStation) + " - " + getStationName(toStation);
     		//System.out.println("Insert Selections");
     		mDb.execSQL("INSERT INTO ToFromSelections VALUES(NULL,'0','" + 
     				fromStation + "','" + toStation + "','"+name
-    				+"','1');");
+    				+"','1')");
     	}
     	c.close();
     }
